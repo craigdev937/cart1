@@ -16,10 +16,8 @@ export interface IProd {
     thumbnail: string,
 };
 
-export interface ICart {
-    id: number,
-    quantity: number,
-    product: IProd
+export interface ICart extends IProd {
+    quantity: number
 };
 
 export interface ICartState {

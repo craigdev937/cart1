@@ -1,6 +1,6 @@
 import { createApi, 
     fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IProd, IStore } from "../models/Interfaces";
+import { IDetail, IStore } from "../models/Interfaces";
 const URL = "https://dummyjson.com/products";
 
 export const DAPI = createApi({
@@ -12,8 +12,8 @@ export const DAPI = createApi({
             query: () => "/",
             providesTags: ["Products"]
         }),
-        detail: builder.query({
-            query: () => "/",
+        detail: builder.query<IDetail, number>({
+            query: (id) => `/${id}`,
             providesTags: ["Products"]
         })
     })
